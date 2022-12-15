@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8976899E294A1F710091A6FB /* MyFirstJSON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFirstJSON.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8976899E294A1F710091A6FB /* RickAndMortyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		897689A1294A1F710091A6FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		897689A3294A1F710091A6FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		897689A5294A1F710091A6FB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		8976899F294A1F710091A6FB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8976899E294A1F710091A6FB /* MyFirstJSON.app */,
+				8976899E294A1F710091A6FB /* RickAndMortyAPI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,9 +105,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8976899D294A1F710091A6FB /* MyFirstJSON */ = {
+		8976899D294A1F710091A6FB /* RickAndMortyAPI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 897689B2294A1F720091A6FB /* Build configuration list for PBXNativeTarget "MyFirstJSON" */;
+			buildConfigurationList = 897689B2294A1F720091A6FB /* Build configuration list for PBXNativeTarget "RickAndMortyAPI" */;
 			buildPhases = (
 				8976899A294A1F710091A6FB /* Sources */,
 				8976899B294A1F710091A6FB /* Frameworks */,
@@ -117,9 +117,9 @@
 			);
 			dependencies = (
 			);
-			name = MyFirstJSON;
+			name = RickAndMortyAPI;
 			productName = MyFirstJSON;
-			productReference = 8976899E294A1F710091A6FB /* MyFirstJSON.app */;
+			productReference = 8976899E294A1F710091A6FB /* RickAndMortyAPI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -137,7 +137,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 89768999294A1F710091A6FB /* Build configuration list for PBXProject "MyFirstJSON" */;
+			buildConfigurationList = 89768999294A1F710091A6FB /* Build configuration list for PBXProject "RickAndMortyAPI" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -150,7 +150,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8976899D294A1F710091A6FB /* MyFirstJSON */,
+				8976899D294A1F710091A6FB /* RickAndMortyAPI */,
 			);
 		};
 /* End PBXProject section */
@@ -375,7 +375,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		89768999294A1F710091A6FB /* Build configuration list for PBXProject "MyFirstJSON" */ = {
+		89768999294A1F710091A6FB /* Build configuration list for PBXProject "RickAndMortyAPI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				897689B0294A1F720091A6FB /* Debug */,
@@ -384,7 +384,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		897689B2294A1F720091A6FB /* Build configuration list for PBXNativeTarget "MyFirstJSON" */ = {
+		897689B2294A1F720091A6FB /* Build configuration list for PBXNativeTarget "RickAndMortyAPI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				897689B3294A1F720091A6FB /* Debug */,

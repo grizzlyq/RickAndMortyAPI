@@ -76,7 +76,7 @@ extension MainViewController {
                 let character = try JSONDecoder().decode(RickAndMortyCharacters.self, from: data)
                 print(character)
             } catch let error {
-                print(error.localizedDescription)
+                print(error)
             }
 
 
