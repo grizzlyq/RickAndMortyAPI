@@ -7,7 +7,6 @@
 
 
 enum Link: String {
-    case firstLink = "https://http.cat/401"
     case secondLink = "https://rickandmortyapi.com/api/character"
 }
 
@@ -15,7 +14,7 @@ struct RickAndMortyCharacters: Decodable {
     let results: [Results]
 }
 
-struct Results: Decodable {
+struct Results: Decodable, Identifiable {
     let id: Int
     let name: String
     let status: String
@@ -24,13 +23,13 @@ struct Results: Decodable {
     let gender: String
     let origin: Location
     let location: Location
-//    let image: String
-//    let episode: [String]
-//    let url: String
-//    let created: String
+    let image: String
+    let episode: [String]
+    let url: String
+    let created: String
 }
 
 struct Location: Decodable {
     let name: String
-//    let url: String
+    let url: String
 }
