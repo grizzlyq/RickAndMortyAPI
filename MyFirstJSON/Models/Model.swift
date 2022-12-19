@@ -5,31 +5,35 @@
 //  Created by Дмитрий on 14.12.2022.
 //
 
+//
+//enum Link: String {
+//    case secondLink = "https://rickandmortyapi.com/api/character"
+//}
 
-enum Link: String {
-    case secondLink = "https://rickandmortyapi.com/api/character"
+// MARK: - Character
+struct Character: Codable {
+    let info: Info
+    let results: [Result]
 }
 
-struct RickAndMortyCharacters: Decodable {
-    let results: [Results]
-}
-
-struct Results: Decodable, Identifiable {
+// MARK: - Result
+struct Result: Codable {
     let id: Int
     let name: String
     let status: String
     let species: String
-    let type: String
     let gender: String
-    let origin: Location
     let location: Location
     let image: String
-    let episode: [String]
-    let url: String
-    let created: String
 }
 
-struct Location: Decodable {
+// MARK: - Location
+struct Location: Codable {
     let name: String
-    let url: String
+}
+
+// MARK: - Info
+struct Info: Codable {
+    let count: Int
+    let next: String
 }
