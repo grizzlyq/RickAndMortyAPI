@@ -66,12 +66,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="34o-hT-BIm">
-                        <barButtonItem key="leftBarButtonItem" title="Prev" style="plain" id="Yq2-DO-cu1">
+                        <barButtonItem key="leftBarButtonItem" title="Prev" id="Yq2-DO-cu1">
                             <connections>
                                 <action selector="updateData:" destination="5KF-4b-Cny" id="O4Q-tA-i5F"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="DxT-eO-RJG">
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="Next" id="DxT-eO-RJG">
                             <connections>
                                 <action selector="updateData:" destination="5KF-4b-Cny" id="Zy9-Bf-idS"/>
                             </connections>
@@ -96,8 +96,8 @@
                                     <constraint firstAttribute="height" constant="128" id="yng-Ic-1fs"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7B-0k-2Gc">
-                                <rect key="frame" x="77" y="313" width="240" height="171"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7B-0k-2Gc">
+                                <rect key="frame" x="16" y="316" width="350" height="350"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -106,13 +106,13 @@
                         <viewLayoutGuide key="safeArea" id="1jc-ol-cID"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="1jc-ol-cID" firstAttribute="bottom" secondItem="z7B-0k-2Gc" secondAttribute="bottom" constant="334" id="6Sy-LM-AhD"/>
-                            <constraint firstItem="z7B-0k-2Gc" firstAttribute="top" secondItem="cMQ-TC-p8f" secondAttribute="bottom" constant="5" id="K2j-MH-dpf"/>
+                            <constraint firstItem="1jc-ol-cID" firstAttribute="bottom" secondItem="z7B-0k-2Gc" secondAttribute="bottom" constant="152" id="6Sy-LM-AhD"/>
+                            <constraint firstItem="z7B-0k-2Gc" firstAttribute="top" secondItem="cMQ-TC-p8f" secondAttribute="bottom" constant="8" id="K2j-MH-dpf"/>
                             <constraint firstItem="1jc-ol-cID" firstAttribute="trailing" secondItem="cMQ-TC-p8f" secondAttribute="trailing" constant="77" id="MR3-Xi-HAY"/>
                             <constraint firstItem="cMQ-TC-p8f" firstAttribute="leading" secondItem="1jc-ol-cID" secondAttribute="leading" constant="76" id="hHh-aj-4AS"/>
                             <constraint firstItem="cMQ-TC-p8f" firstAttribute="top" secondItem="1jc-ol-cID" secondAttribute="top" constant="77" id="hWS-K3-kKJ"/>
-                            <constraint firstItem="1jc-ol-cID" firstAttribute="trailing" secondItem="z7B-0k-2Gc" secondAttribute="trailing" constant="76" id="oA8-bB-zuk"/>
-                            <constraint firstItem="z7B-0k-2Gc" firstAttribute="leading" secondItem="1jc-ol-cID" secondAttribute="leading" constant="77" id="wNT-bF-FtL"/>
+                            <constraint firstItem="1jc-ol-cID" firstAttribute="trailing" secondItem="z7B-0k-2Gc" secondAttribute="trailing" constant="27" id="oA8-bB-zuk"/>
+                            <constraint firstItem="z7B-0k-2Gc" firstAttribute="leading" secondItem="1jc-ol-cID" secondAttribute="leading" constant="16" id="wNT-bF-FtL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="W9s-zj-ZiJ"/>
