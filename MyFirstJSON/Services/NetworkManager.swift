@@ -7,11 +7,6 @@
 
 import Foundation
 
-enum Link: String {
-    case baseURL = "https://rickandmortyapi.com/api/character"
-    case testImageURL = "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-}
-
 enum NetworkError: Error {
     case invalidURL
     case noData
@@ -21,70 +16,47 @@ enum NetworkError: Error {
 class NetworkManager {
     
     static let shared = NetworkManager()
-    private let baseURL = "https://rickandmortyapi.com/api"
-    private let testImageURL = "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
     
     private init() {}
-        
     
-    func fetchCharacters(page: Int, completed: @escaping (Swift.Result<Character, Error>) -> Void) {
-
-        let endpoint = baseURL + "/character/?page=\(page)"
-
-        guard let url = URL(string: endpoint) else {
-
+    func fetch<T: Decodable>(_ type: T.Type, from url: String?, with completion: @escaping(Result<T, NetworkError>) -> Void) {
+        guard let stringURL = url, let url = URL(string: stringURL) else {
+            completion(.failure(.invalidURL))
             return
         }
-
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-
-            if let _ = error { return }
-
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
-
-            guard let data = data else { return }
-
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let characters = try decoder.decode(Character.self, from: data)
-                completed(.success(characters))
-            } catch {
+        
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                completion(.failure(.noData))
+                print(error?.localizedDescription ?? "No error description")
                 return
             }
-        }
-
-        task.resume()
-    }
-
-    func fetchCharacterCount(completed: @escaping (Swift.Result<Character, Error>) -> Void) {
-
-        let endpoint = baseURL + "/character)"
-
-        guard let url = URL(string: endpoint) else {
-
-            return
-        }
-
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-
-            if let _ = error { return }
-
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
-
-            guard let data = data else { return }
-
             do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let characterCount = try decoder.decode(Character.self, from: data)
-                completed(.success(characterCount))
+                let type = try JSONDecoder().decode(T.self, from: data)
+                DispatchQueue.main.async {
+                    completion(.success(type))
+                }
             } catch {
+                completion(.failure(.decodingError))
+            }
+        }.resume()
+    }
+    
+    func fetchImage(from url: String?, completion: @escaping(Result<Data, NetworkError>) -> Void) {
+            guard let url = URL(string: url ?? "") else {
+                completion(.failure(.invalidURL))
                 return
             }
+            DispatchQueue.global().async {
+                guard let imageData = try? Data(contentsOf: url) else {
+                    completion(.failure(.noData))
+                    return
+                }
+                DispatchQueue.main.async {
+                    completion(.success(imageData))
+                }
+            }
         }
-
-        task.resume()
-    }
-
 }
+    
+    
