@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Alamofire
 
 
 class CharactersTableViewController: UITableViewController {
@@ -30,6 +30,7 @@ class CharactersTableViewController: UITableViewController {
         tableView.rowHeight = 70
         tableView.backgroundColor = .black
         
+        fetchCharacter()
         setupNavigationBar()
         setupSearchController()
         fetchData(from: Link.rickAndMortyApi.rawValue)
@@ -109,6 +110,39 @@ class CharactersTableViewController: UITableViewController {
             }
         }
     }
+    
+    private func fetchCharacter() {
+        AF.request(Link.rickAndMortyApi.rawValue)
+            .validate()
+            .responseJSON { [weak self] dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    guard let characterData = value as? [String: Any] else { return }
+//                    for charact in characterData {
+//                        let character = Character(
+//                            id: characterData["id"] as? Int ?? 0,
+//                            name: characterData["name"] as? String ?? "",
+//                            status: characterData["status"] as? String ?? "",
+//                            species: characterData["species"] as? String ?? "",
+//                            gender: characterData["gender"] as? String ?? "",
+//                            origin: characterData["origin"] as? Location,
+//                            location: characterData["location"] as? Location,
+//                            image: characterData["image"] as? String ?? "",
+//                            episode: characterData["episode"] as? [String] ?? [],
+//                            url: characterData["url"] as? String ?? ""
+//                        )
+                        
+                    let character = Character(value: characterData)
+                    self?.filteredCharacter.append(character)
+////                    }
+                    print(self?.filteredCharacter)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+
+    }
+    
 }
 
 // MARK: - UISearchResultsUpdating
